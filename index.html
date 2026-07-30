@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>Informationen für das Berufliche Gymnasium | BBS Nienburg</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blau:#1D4E9E;
+  --blau-dunkel:#0E2A54;
+  --gruen:#63B32E;
+  --gruen-dunkel:#4E9A1F;
+  --gruen-tief:#1E5E23;
+  --gruen-hell:#EDF7E4;
+  --blau-hell:#EEF3FB;
+  --tinte:#14202E;
+  --grau:#5A6472;
+  --linie:#E6EBF2;
+  --weiss:#FFFFFF;
+  --papier:#F6F9F3;
+  --radius:20px;
+  --content:1040px;
+  --schatten:0 1px 2px rgba(16,34,64,.04),0 8px 24px rgba(16,34,64,.06);
+  --schatten-hover:0 2px 4px rgba(16,34,64,.05),0 18px 40px rgba(16,34,64,.12);
+  color-scheme:light only;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--papier)}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--tinte);background:var(--papier);line-height:1.65;font-size:16px;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;line-height:1.14;letter-spacing:-.02em}
+a{color:var(--gruen-dunkel)}
+::selection{background:var(--gruen);color:#fff}
+
+#progress{position:fixed;top:0;left:0;height:2px;width:0;z-index:60;background:linear-gradient(90deg,var(--gruen),var(--gruen-dunkel));opacity:.95;transition:width .1s linear}
+
+/* Navigation */
+nav{position:sticky;top:0;z-index:50;background:rgba(246,249,243,.82);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid var(--linie)}
+.nav-inner{max-width:var(--content);margin:0 auto;display:flex;align-items:center;gap:20px;padding:14px 24px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.logo-img{height:38px;width:auto;display:block}
+.nav-links{display:flex;gap:2px;flex-wrap:wrap;margin-left:auto}
+.nav-links a{text-decoration:none;color:var(--grau);font-size:.86rem;font-weight:600;padding:8px 14px;border-radius:999px;transition:color .2s,background .2s}
+.nav-links a:hover,.nav-links a:focus-visible{background:var(--gruen-hell);color:var(--gruen-dunkel)}
+.nav-links a.active{background:var(--gruen-dunkel);color:#fff}
+
+/* Hero */
+header{position:relative;overflow:hidden;background:radial-gradient(130% 130% at 12% 0%,#2E7D32 0%,#1E5E23 45%,#123F1A 100%);color:#fff}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+.blob.b1{width:540px;height:540px;background:#5FA136;top:-170px;right:-130px;opacity:.32}
+.blob.b2{width:400px;height:400px;background:#1D4E9E;bottom:-200px;left:-100px;opacity:.18}
+.hero{max-width:var(--content);margin:0 auto;padding:100px 24px 116px;position:relative;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);color:#EAF7DF;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;padding:7px 15px;border-radius:999px;margin-bottom:26px}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:#BFE6A0;box-shadow:0 0 0 4px rgba(191,230,160,.28)}
+.hero h1{font-size:clamp(2.3rem,6vw,4rem);font-weight:700;max-width:15ch;margin-bottom:22px;letter-spacing:-.03em;line-height:1.02}
+.hero h1 .akz{color:#BFE6A0}
+.hero p{max-width:58ch;font-size:clamp(1rem,1.6vw,1.18rem);color:#D6E8C9}
+.hero-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:44px;max-width:720px}
+.hero-chip{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:18px 20px;transition:transform .3s,background .3s}
+.hero-chip:hover{transform:translateY(-4px);background:rgba(255,255,255,.12)}
+.hero-chip strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:1.5rem;letter-spacing:-.02em;color:#fff}
+.hero-chip span{font-size:.8rem;color:#C4DDB4}
+.hero-wave{position:absolute;left:0;right:0;bottom:-1px;width:100%;display:block;z-index:1}
+
+/* Layout */
+main{max-width:var(--content);margin:0 auto;padding:0 24px}
+section{padding:80px 0;border-bottom:1px solid var(--linie);scroll-margin-top:78px}
+section:last-of-type{border-bottom:none}
+.kicker{display:inline-block;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gruen-dunkel);margin-bottom:12px;padding-bottom:3px;border-bottom:1px solid var(--gruen)}
+section h2{font-size:clamp(1.7rem,3.8vw,2.5rem);color:var(--gruen-tief);margin-bottom:16px;letter-spacing:-.03em}
+section h3{font-size:1.25rem;color:var(--gruen-tief);margin:44px 0 12px;letter-spacing:-.02em}
+section h4.blk{font-family:'Space Grotesk',sans-serif;color:var(--gruen-tief);margin-top:22px;margin-bottom:6px}
+section p{margin-bottom:14px}
+.lead{font-size:clamp(1.05rem,1.5vw,1.2rem);color:var(--grau)}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
+.reveal.vis{opacity:1;transform:none}
+
+.hinweis{background:var(--weiss);border:1px solid var(--linie);border-left:3px solid var(--gruen);padding:18px 22px;border-radius:0 14px 14px 0;margin:22px 0;box-shadow:var(--schatten)}
+.hinweis strong{color:var(--gruen-tief)}
+.karten{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:26px 0}
+.karte{background:var(--weiss);border:1px solid var(--linie);border-radius:var(--radius);padding:26px;box-shadow:var(--schatten);transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s;position:relative;overflow:hidden}
+.karte::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--gruen);opacity:0;transition:opacity .3s}
+.karte:hover{transform:translateY(-6px);box-shadow:var(--schatten-hover)}
+.karte:hover::before{opacity:1}
+.karte h4{color:var(--gruen-tief);margin-bottom:9px;font-size:1.05rem}
+.karte p{font-size:.94rem;margin-bottom:0;max-width:none;color:var(--grau)}
+
+/* ===== Zeitstrahl „Reise zum Abitur" (vertikal, kreativ) ===== */
+.timeline{position:relative;margin:32px 0 4px;padding-left:6px}
+/* Reiselinie mit Farbverlauf Grün -> Blau -> Gold */
+.timeline::before{content:"";position:absolute;left:27px;top:22px;bottom:34px;width:4px;border-radius:4px;background:linear-gradient(180deg,var(--gruen) 0%,var(--gruen-dunkel) 34%,var(--blau) 68%,#E0A400 100%);opacity:.85}
+/* Startpunkt oben */
+.tl-start{position:relative;padding:0 0 10px 74px;min-height:20px}
+.tl-start::before{content:"";position:absolute;left:21px;top:2px;width:16px;height:16px;border-radius:50%;background:var(--gruen);box-shadow:0 0 0 5px var(--gruen-hell),var(--schatten);z-index:2}
+.tl-start span{display:inline-block;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gruen-dunkel)}
+
+/* Phasen-Abschnitte */
+.tl-phase{position:relative;padding:6px 0 4px 74px;margin:14px 0 10px}
+.tl-phase .pin{position:absolute;left:14px;top:2px;width:30px;height:30px;border-radius:9px;background:#fff;border:2px solid var(--blau);display:flex;align-items:center;justify-content:center;color:var(--blau);z-index:2;box-shadow:var(--schatten)}
+.tl-phase.gr .pin{border-color:var(--gruen-dunkel);color:var(--gruen-dunkel)}
+.tl-phase .pin svg{width:16px;height:16px}
+.tl-phase b{display:block;font-family:'Space Grotesk',sans-serif;font-size:1.08rem;color:var(--blau-dunkel);letter-spacing:-.01em}
+.tl-phase.gr b{color:var(--gruen-tief)}
+.tl-phase small{display:block;font-size:.82rem;color:var(--grau)}
+
+/* Stationen */
+.t-step{position:relative;padding:0 0 22px 74px;min-height:52px}
+.t-step:last-child{padding-bottom:0}
+.t-step .punkt{position:absolute;left:8px;top:2px;width:42px;height:42px;background:#fff;border:2px solid var(--gruen);border-radius:13px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--gruen-dunkel);z-index:2;box-shadow:var(--schatten);transition:transform .25s,box-shadow .25s}
+.t-step .punkt svg{width:19px;height:19px}
+.t-step .punkt em{font-family:'Space Grotesk',sans-serif;font-weight:700;font-style:normal;letter-spacing:.02em;font-size:.9rem;line-height:1}
+.t-step .punkt:has(svg) em{font-size:.6rem;margin-top:1px}
+.t-step:hover .punkt{transform:scale(1.08);box-shadow:var(--schatten-hover)}
+.t-card{position:relative;background:var(--weiss);border:1px solid var(--linie);border-radius:16px;padding:16px 20px;box-shadow:var(--schatten);transition:transform .25s,box-shadow .25s}
+.t-card::before{content:"";position:absolute;left:-8px;top:20px;width:14px;height:14px;background:var(--weiss);border-left:1px solid var(--linie);border-bottom:1px solid var(--linie);transform:rotate(45deg)}
+.t-step:hover .t-card{transform:translateX(4px);box-shadow:var(--schatten-hover)}
+.t-zeit{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--gruen-dunkel);margin-bottom:6px}
+.t-zeit .dot{width:7px;height:7px;border-radius:50%;background:var(--gruen)}
+.t-step h4{font-size:1.05rem;color:var(--gruen-tief);margin-bottom:8px}
+.t-step ul{list-style:none;font-size:.88rem;color:var(--grau);display:flex;flex-wrap:wrap;gap:7px 8px}
+.t-step li{position:relative;background:var(--papier);border:1px solid var(--linie);color:var(--grau);padding:5px 12px;border-radius:999px;font-size:.82rem;font-weight:500}
+
+/* Zielstation Abitur */
+.t-step.ziel .punkt{border-color:#C9A200;background:linear-gradient(135deg,#E7B71E,#C9A200);color:#fff}
+.t-step.ziel .punkt::after{content:"";position:absolute;inset:-6px;border-radius:18px;border:2px solid #E7B71E;opacity:.5;animation:zielpuls 2.4s ease-out infinite}
+@keyframes zielpuls{0%{transform:scale(1);opacity:.5}70%{transform:scale(1.2);opacity:0}100%{opacity:0}}
+.t-step.ziel .t-card{background:linear-gradient(150deg,#1E5E23,#123F1A);border:none}
+.t-step.ziel .t-card::before{background:#1E5E23;border-color:transparent}
+.t-step.ziel h4{color:#fff}
+.t-step.ziel .t-zeit{color:#F2D98A}
+.t-step.ziel .t-zeit .dot{background:#F2D98A}
+.t-step.ziel li{background:rgba(255,255,255,.14);border-color:transparent;color:#EAF7DF}
+.t-step.ziel li.gold{background:#E7B71E;color:#3A2E00;font-weight:700}
+@media (prefers-reduced-motion:reduce){.t-step.ziel .punkt::after{animation:none;opacity:.4}}
+
+/* Punktesystem */
+.punkte-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:24px 0}
+.note{border-radius:14px;padding:16px 18px;color:#fff;box-shadow:var(--schatten);transition:transform .3s}
+.note:hover{transform:translateY(-4px)}
+.note .grade{display:block;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.02rem;margin-bottom:9px}
+.note ul{list-style:none;display:flex;flex-direction:column;gap:4px}
+.note li{display:flex;align-items:baseline;justify-content:space-between;gap:12px;font-variant-numeric:tabular-nums}
+.note li b{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem}
+.note li span{font-size:.82rem;opacity:.92}
+.n1{background:#3C7D3F}.n2{background:#5FA136}.n3{background:#8CA33A}.n4{background:#C79A3A}.n5{background:#C57A3C}.n6{background:#B25049}
+
+/* Tabellen */
+.tab-wrap{overflow-x:auto;margin:22px 0;border:1px solid var(--linie);border-radius:var(--radius);box-shadow:var(--schatten);background:#fff}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:.88rem}
+th,td{padding:12px 14px;text-align:left;border:1px solid var(--linie)}
+thead th{background:var(--gruen-dunkel);color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.82rem;border-color:var(--gruen-dunkel)}
+.gruppe td{background:var(--gruen-hell);color:var(--gruen-dunkel);font-weight:700;font-family:'Space Grotesk',sans-serif;border-color:#D8ECC6}
+.gruppe.blau td{background:var(--blau-hell);color:var(--blau-dunkel);border-color:#DBE6F5}
+tbody tr.split td{background:#FFF7E6;border-top:2px solid #E9B949}
+tbody tr.split + tr.split td{border-top:1px solid #F0D89A}
+.grp{display:block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:#9A7A1E;margin-bottom:2px}
+.p5-liste{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.p5-liste li{position:relative;padding-left:14px;font-size:.86rem;line-height:1.4}
+.p5-liste li::before{content:"›";position:absolute;left:0;color:var(--gruen);font-weight:700}
+table.komb td,table.komb th{vertical-align:top}
+table.komb thead th{border-color:rgba(255,255,255,.25)}
+table.komb .sub{display:block;margin-top:4px;font-weight:400;font-size:.78rem;opacity:.9}
+table.gew thead th{border-color:rgba(255,255,255,.25);vertical-align:middle}
+table.gew .sub{display:block;margin-top:2px;font-weight:400;font-size:.74rem;opacity:.9}
+table.gew td:first-child{font-weight:600;color:var(--gruen-tief);font-family:'Space Grotesk',sans-serif}
+table.gew td,table.gew th{white-space:nowrap}
+.gew-head{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.print-btn{display:inline-flex;align-items:center;gap:8px;background:var(--gruen-dunkel);color:#fff;border:none;border-radius:999px;padding:9px 18px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.84rem;cursor:pointer;box-shadow:var(--schatten);transition:background .2s,transform .2s,box-shadow .2s}
+.print-btn:hover{background:var(--gruen-tief);transform:translateY(-1px);box-shadow:var(--schatten-hover)}
+.print-btn:focus-visible{outline:3px solid var(--gruen-hell);outline-offset:2px}
+.print-btn svg{width:17px;height:17px}
+table.komb td u{text-decoration:underline;text-underline-offset:2px}
+td.center,th.center{text-align:center}
+.fussnoten{font-size:.78rem;color:var(--grau);max-width:82ch}
+.fussnoten li{margin-bottom:4px}
+.fussnoten ol{padding-left:18px}
+
+/* Regeln */
+.regeln{counter-reset:regel;list-style:none;margin:20px 0}
+.regeln li{counter-increment:regel;position:relative;padding:18px 20px 18px 64px;background:var(--weiss);border:1px solid var(--linie);border-radius:16px;margin-bottom:12px;font-size:.95rem;box-shadow:var(--schatten);transition:transform .25s,box-shadow .25s}
+.regeln li:hover{transform:translateX(4px);box-shadow:var(--schatten-hover)}
+.regeln li::before{content:counter(regel,decimal-leading-zero);position:absolute;left:18px;top:16px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:var(--gruen-hell);color:var(--gruen-dunkel);border:1px solid #D8ECC6;border-radius:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.9rem}
+
+/* Akkordeon */
+details{border:1px solid var(--linie);border-radius:16px;margin-bottom:12px;background:#fff;box-shadow:var(--schatten);overflow:hidden;transition:box-shadow .25s}
+details[open]{box-shadow:var(--schatten-hover)}
+summary{cursor:pointer;padding:18px 22px;font-family:'Space Grotesk',sans-serif;font-weight:600;color:var(--gruen-tief);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;transition:background .2s}
+summary:hover{background:var(--gruen-hell)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";width:28px;height:28px;flex:none;border-radius:9px;background:var(--gruen-hell);color:var(--gruen-dunkel);display:flex;align-items:center;justify-content:center;font-size:1.35rem;line-height:1;transition:transform .25s,background .25s,color .25s}
+details[open] summary::after{background:var(--gruen-dunkel);color:#fff;transform:rotate(45deg)}
+details .inhalt{padding:2px 22px 20px;font-size:.94rem;color:var(--grau)}
+details .inhalt p{margin-bottom:10px}
+
+/* Kontakt */
+.kontakt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px;align-items:stretch}
+.kontakt{background:var(--gruen-tief);color:#fff;border-radius:var(--radius);padding:26px;box-shadow:var(--schatten);transition:transform .3s,box-shadow .3s;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.kontakt::after{content:"";position:absolute;width:130px;height:130px;background:radial-gradient(circle,rgba(143,208,92,.22),transparent 70%);top:-45px;right:-45px}
+.kontakt:hover{transform:translateY(-6px);box-shadow:var(--schatten-hover)}
+.kontakt h4{color:#fff;margin-bottom:4px;font-size:1.15rem}
+.kontakt h4 + p{margin-bottom:14px}
+.kontakt p:last-child{margin-bottom:0}
+.kontakt .rolle{color:#BFE6A0;font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:12px}
+.kontakt p{font-size:.9rem;color:#D6E8C9;margin-bottom:8px;max-width:none;word-break:break-word}
+.kontakt a{color:#fff;font-weight:600;text-decoration:underline;text-decoration-color:rgba(255,255,255,.35);text-underline-offset:3px}
+
+/* Zitat */
+.zitat{background:var(--gruen-dunkel);color:#fff;border-radius:var(--radius);padding:36px;margin:30px 0;box-shadow:var(--schatten);position:relative;overflow:hidden}
+.zitat::before{content:"\201C";position:absolute;font-family:'Space Grotesk',sans-serif;font-size:8rem;line-height:1;top:-6px;right:24px;opacity:.16}
+.zitat p{font-family:'Space Grotesk',sans-serif;font-size:1.3rem;font-weight:600;margin-bottom:10px;max-width:none;letter-spacing:-.02em;position:relative}
+.zitat cite{font-style:normal;font-size:.85rem;opacity:.92}
+
+footer{background:linear-gradient(165deg,#1E5E23,#123F1A);color:#C4DDB4}
+.footer-inner{max-width:var(--content);margin:0 auto;padding:48px 24px;font-size:.86rem;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.footer-inner strong{color:#fff;font-family:'Space Grotesk',sans-serif}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .blob{display:none}
+  *{transition:none!important}
+}
+@media (max-width:860px){
+  .kontakt-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  .hero{padding:72px 22px 88px}
+  section{padding:56px 0}
+  .nav-links{width:100%;overflow-x:auto;flex-wrap:nowrap;margin-left:0;padding-bottom:2px}
+  .nav-links a{white-space:nowrap}
+  .kontakt-grid{grid-template-columns:1fr}
+}
+/* Druck der Gewichtungstabelle erfolgt über ein separates Fenster (siehe druckeGewichtung) */
+</style>
+</head>
+<body>
+<div id="progress" aria-hidden="true"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="#top" aria-label="BBS Nienburg/Weser – Startseite">
+      <img class="logo-img" src="data:image/png;base64,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" alt="BBS Nienburg/Weser" width="317" height="240">
+    </a>
+    <div class="nav-links">
+      <a href="#willkommen">Willkommen</a>
+      <a href="#weg">Ihr Weg</a>
+      <a href="#einfuehrung">Jahrgang 11</a>
+      <a href="#quali">Jahrgang 12/13</a>
+      <a href="#abitur">Abitur</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="blob b1" aria-hidden="true"></div>
+  <div class="blob b2" aria-hidden="true"></div>
+  <div class="hero">
+    <span class="eyebrow">Informationen für Schülerinnen und Schüler</span>
+    <h1>Abi, Abi, Abi, <span class="akz">Abitur!</span> Willkommen in der Oberstufe.</h1>
+    <p>Alles, was Sie am Beruflichen Gymnasium der BBS Nienburg bis zum Abitur begleitet: Kurswahl, Punktesystem, Belegungs- und Einbringungsverpflichtung, Prüfungen und Ihre Ansprechpersonen – kompakt auf einer Seite.</p>
+   
+  </div>
+  <svg class="hero-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0,64 C240,16 480,16 720,40 C960,64 1200,80 1440,48 L1440,80 L0,80 Z" fill="#F6F9F3"/></svg>
+</header>
+
+<main>
+
+<!-- WILLKOMMEN / VORWORT -->
+<section id="willkommen">
+  <p class="kicker">Vorwort der Abteilungsleitung</p>
+  <h2>Herzlich willkommen an unserer Schule!</h2>
+  <p class="lead">Liebe Schülerin, lieber Schüler der beruflichen Gymnasien, herzlich willkommen an unserer Schule! Ich freue mich sehr, Sie in der Jahrgangsstufe 11 des beruflichen Gymnasiums begrüßen zu dürfen. Mit dem Einstieg in diesen neuen Lebensabschnitt eröffnen sich Ihnen vielfältige Chancen – von fachlicher Vertiefung, persönlichem Wachstum bis hin zur allgemeinen Hochschulreife.</p>
+  <p>In dieser Übersicht haben wir für Sie alle wichtigen Informationen zusammengestellt, die Sie bis zum Abitur begleiten: Stundenplanung, Kurswahl, Belegungsverpflichtung, Einbringungsverpflichtung und organisatorische Abläufe. Auf den ersten Seiten erhalten Sie einen kompakten Überblick über die einzelnen Etappenziele und Ansprechpersonen.</p>
+  <p>Unsere Abteilung der beruflichen Gymnasien zeichnet sich durch engagierte Lehrkräfte aus, die Ihre Lernwege individuell fördern.</p>
+  <p>Bitte nehmen Sie sich Zeit, diese Broschüre aufmerksam zu studieren, und heben Sie sie als Orientierungshilfe gut auf. Ihre Tutorin bzw. Ihr Tutor werden zu den wichtigsten Zeitpunkten während Ihrer Zeit in der Oberstufe alle entscheidenden Punkte im Detail mit Ihnen besprechen. So ist gewährleistet, dass Sie sich schnell zurechtfinden und alle schulischen Angebote optimal nutzen können.</p>
+  <p>Für Ihren Start, Ihr weiteres Lernen und Ihre persönliche Entwicklung wünsche ich Ihnen viel Freude, Neugier und Erfolg. Erleben Sie die kommenden Jahre als bereichernde und prägende Zeit, in der Sie Ihre Ziele sicher verfolgen und Ihr Abitur mit Stolz erreichen.</p>
+  <p>Mit den besten Wünschen<br><strong>das Team </strong>, des Berufliche Gymnasien</p>
+
+  <h3>Der Aufbau der Oberstufe</h3>
+  <p>Sie beginnen nun die gymnasiale Oberstufe, die Sie auf das Abitur vorbereitet. Das Ziel der gymnasialen Oberstufe ist es, Ihnen eine breite und vertiefte Allgemeinbildung zu vermitteln und die allgemeine Studierfähigkeit zu erwerben. Das bedeutet, dass Sie Kenntnisse, Fähigkeiten und Fertigkeiten erwerben und besonders zum selbstständigen Lernen und wissenschaftspropädeutischen Arbeiten gefördert werden.</p>
+  <p>Die gymnasiale Oberstufe ist in zwei Phasen gegliedert:</p>
+  <div class="karten">
+    <div class="karte">
+      <h4>1 · Einführungsphase</h4>
+      <p>Die einjährige Einführungsphase (Jahrgang 11).</p>
+    </div>
+    <div class="karte">
+      <h4>2 · Qualifikationsphase</h4>
+      <p>Die zweijährige Qualifikationsphase (Jahrgang 12 und 13).</p>
+    </div>
+    <div class="karte">
+      <h4>Ziel: Allgemeine Hochschulreife</h4>
+      <p>Der Weg zur allgemeinen Hochschulreife (Abitur) umfasst insgesamt 13 Schuljahre – bei uns besuchen Sie davon nur die drei Jahre der Oberstufe.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ZEITSTRAHL -->
+<section id="weg">
+  <p class="kicker">Das Ziel kennen ist der halbe Weg</p>
+  <h2>Ihr Weg durch die Oberstufe</h2>
+  <p class="lead">Von „Ankommen und Kennenlernen“ bis zum Abitur – Ihre Reise durch die Oberstufe. Die Zeitangaben sind grobe Richtwerte; die genauen Termine erfahren Sie rechtzeitig über Ihre Tutorin bzw. Ihren Tutor.</p>
+  <div class="timeline" aria-label="Zeitstrahl der Oberstufe">
+
+    <div class="t-step">
+      <div class="punkt" aria-hidden="true"><em>11.1</em></div>
+      <div class="t-card"><span class="t-zeit"><span class="dot"></span>Jg. 11 · 1. Halbjahr</span><h4>Ankommen &amp; Orientieren</h4><ul><li>Ankommen &amp; Kennenlernen</li><li>Teambildung &amp; Vermittlung von Lern- und Unterrichtsmethoden</li><li>Methoden-/Klassenteamtag</li><li>Praktikum (je nach Schwerpunkt A, T, Q, W)</li></ul></div>
+    </div>
+
+    <div class="t-step">
+      <div class="punkt" aria-hidden="true"><em>11.2</em></div>
+      <div class="t-card"><span class="t-zeit"><span class="dot"></span>Jg. 11 · 2. Halbjahr</span><h4>Kurswahl stellt die Weichen</h4><ul><li>Kurswahl (Vorwahl der Prüfungsfächer)</li><li>Praktikum Q (Schwerpunkt Sozialpädagogik)</li><li>finale Kurswahl zum Ende der Einführungsphase</li></ul></div>
+    </div>
+
+    <div class="tl-phase">
+      <span class="pin" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22V4l7 3 9-4v11l-9 4-7-3z"/><path d="M4 13l7 3 9-4"/></svg></span>
+      <b>Qualifikationsphase</b>
+      <small>Jahrgang 12 &amp; 13 · jetzt zählen die Kursnoten (Block I)</small>
+    </div>
+
+    <div class="t-step">
+      <div class="punkt" aria-hidden="true"><em>12.1</em></div>
+      <div class="t-card"><span class="t-zeit"><span class="dot"></span>Jg. 12 · 1. Halbjahr</span><h4>Start der Qualifikationsphase</h4><ul><li>Beginn Block I – ab jetzt zählen die Kursnoten</li><li>Start der Berufs- &amp; Studienorientierung</li></ul></div>
+    </div>
+
+    <div class="t-step">
+      <div class="punkt" aria-hidden="true"><em>12.2</em></div>
+      <div class="t-card"><span class="t-zeit"><span class="dot"></span>Jg. 12 · 2. Halbjahr</span><h4>Projektarbeiten &amp; Festlegung P4/P5</h4><ul><li>Kick-off der Projektarbeiten</li><li>Kolloquium zu den Projektarbeiten</li><li>Festlegung/Tausch von P4 &amp; P5 (P5 = Präsentationsprüfung)</li></ul></div>
+    </div>
+
+    <div class="t-step">
+      <div class="punkt" aria-hidden="true"><em>13.1</em></div>
+      <div class="t-card"><span class="t-zeit"><span class="dot"></span>Jg. 13 · 1. Halbjahr</span><h4>Auf die Zielgerade</h4><ul><li>Äquivalenzprüfung (Schwerpunkt Sozialpädagogik)</li><li>Studienfahrt</li><li>Beginn der Vorabiturphase</li></ul></div>
+    </div>
+
+    <div class="t-step">
+      <div class="punkt" aria-hidden="true"><em>13.2</em></div>
+      <div class="t-card"><span class="t-zeit"><span class="dot"></span>Jg. 13 · 2. Halbjahr</span><h4>Anmeldung zur Abiturprüfung</h4><ul><li>Anmeldung &amp; Zulassung zur Abiturprüfung</li><li>ggf. Rücktritt / P5 = Präsentationsprüfung</li></ul></div>
+    </div>
+
+    <div class="t-step ziel">
+      <div class="punkt" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v4c0 1.5 3 3 6 3s6-1.5 6-3v-4"/><path d="M22 9v5"/></svg></div>
+      <div class="t-card"><span class="t-zeit"><span class="dot"></span>Ziel erreicht</span><h4>Das Abitur</h4><ul><li>schriftliche &amp; mündliche Abiturprüfungen</li><li class="gold">Abitur – allgemeine Hochschulreife</li></ul></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EINFÜHRUNGSPHASE -->
+<section id="einfuehrung">
+  <p class="kicker">Jahrgang 11</p>
+  <h2>Die Einführungsphase</h2>
+  <p class="lead">Die Einführungsphase dient dazu, Sie auf den Unterricht in der Qualifikationsphase vorzubereiten. In allen Fächern wird ein Grundwissen vermittelt, das Ihnen begründete Wahlentscheidungen für die Qualifikationsphase ermöglicht, z. B. bei der Wahl Ihrer Schwerpunkt- und Abiturprüfungsfächer. Der Unterricht findet in der Regel im Klassenverband statt.</p>
+  <p>Ihr Unterricht setzt sich aus Profil-, Kern- und Ergänzungsfächern zusammen. Die wöchentliche Pflichtstundenzahl beträgt mindestens 30 Unterrichtsstunden.</p>
+
+  <h3>Wichtig für den Eintritt: die zweite Fremdsprache</h3>
+  <details>
+    <summary>Keine zweite Fremdsprache in Klasse 7 – 10 gelernt?</summary>
+    <div class="inhalt">
+      <p>Wenn Sie bis zum Erwerb Ihrer Zugangsberechtigung durchgehend in den Schuljahrgängen 7 bis 10 keine zweite Pflichtfremdsprache gelernt haben, können Sie trotzdem in die gymnasiale Oberstufe eintreten. Allerdings müssen Sie dann von Klasse 11 bis 13 durchgehend am Unterricht in einer zweiten Fremdsprache teilnehmen. Eine in der Einführungsphase neu begonnene Fremdsprache muss in Einführungs- und Qualifikationsphase durchgehend <strong>vierstündig</strong> belegt werden – bei uns ist das <strong>Spanisch</strong>.</p>
+      <p>Die Leistungen aus mindestens zwei Schulhalbjahren der Qualifikationsphase in dieser neu begonnenen Fremdsprache müssen i. d. R. je nach Prüfungsfachkombination in die Gesamtqualifikation für das Abitur eingebracht werden.</p>
+    </div>
+  </details>
+  <details>
+    <summary>Zweite Fremdsprache ab Klasse 7 durchgehend besucht?</summary>
+    <div class="inhalt">
+      <p>Wenn Sie ab dem 6. Schuljahrgang durchgehend Unterricht in der zweiten Fremdsprache besucht haben, sind Sie <strong>nicht verpflichtet</strong>, am Unterricht in einer weiteren Fremdsprache teilzunehmen.</p>
+    </div>
+  </details>
+  <details>
+    <summary>Spanisch freiwillig belegen</summary>
+    <div class="inhalt">
+      <p>Vielleicht mögen Sie aber Sprachen oder möchten vielfältiger aufgestellt sein – dann können Sie den Spanisch-Unterricht freiwillig besuchen. Nach einer <strong>zweiwöchigen Probezeit</strong> zu Beginn des Schuljahres können Sie sich entscheiden. Sollten Sie sich dafür entscheiden, gilt es wie jedes andere Fach in Bezug auf verbindliche Teilnahme und Versetzungsbestimmungen, d. h. Ihre Spanischnote ist für Sie <strong>versetzungsrelevant</strong>.</p>
+      <p>Zu Beginn der Qualifikationsphase kann die Entscheidung zur freiwilligen Belegung revidiert oder erneuert werden. Sofern Sie Spanisch dann nicht abwählen, belegen Sie es bis zum Ende der Qualifikationsphase inklusive der Möglichkeit der Abiturprüfung.</p>
+    </div>
+  </details>
+
+  <h3>Sammeln Sie Berufserfahrung: Ihr Praktikum</h3>
+  <p>Je nachdem, welchen Schwerpunkt Sie belegen, absolvieren Sie unterschiedlich lange Praktika.</p>
+  <div class="karten">
+    <div class="karte">
+      <h4>Sozialpädagogik</h4>
+      <p>Im Bereich Sozialpädagogik sind insgesamt ca. 5 Wochen Praktikum zu absolvieren. Grund dafür ist die Doppelqualifikation. Die Praktikumszeit wird geteilt: vor den Halbjahreszeugnissen findet das erste Praktikum statt und vor den Sommerferien das zweite Praktikum. Denken Sie daran, dass Sie rechtzeitig ein privates erweitertes Führungszeugnis dafür bei Ihrer Kommunalverwaltung beantragen.</p>
+    </div>
+    <div class="karte">
+      <h4>Agrarwirtschaft, Technik &amp; Wirtschaft</h4>
+      <p>In den Bereichen Agrarwirtschaft, Technik und Wirtschaft wird nur das Praktikum vor den Halbjahreszeugnissen absolviert. Hier wird keine Doppelqualifikation angeboten, daher reduziert sich die Praktikumszeit.</p>
+    </div>
+  </div>
+  <p>Ihre Lehrkräfte bereiten Sie im Fach <strong>Praxis</strong> auf das Praktikum vor und betreuen Sie auch während der Praktikumszeit – Sie können sie jederzeit kontaktieren.</p>
+
+  <h3>Leistungsbewertung: das Punktesystem</h3>
+  <p>In der Oberstufe werden Ihre Leistungen nicht mehr mit den Noten 1 bis 6 bewertet, sondern mit einem Punktesystem von <strong>00 bis 15</strong> Punkten. Fächer, die mit 00 Punkten abgeschlossen werden, gelten als <strong>nicht besucht</strong>. Wie viele Punkte Sie erhalten, richtet sich nach der erbrachten Leistung in Prozent – nach folgendem KMK-Schema (Einführungs- und Qualifikationsphase, ab 2018/2019):</p>
+  <div class="punkte-grid">
+    <div class="note n1"><span class="grade">sehr gut</span><ul><li><b>15</b><span>ab 95 %</span></li><li><b>14</b><span>ab 90 %</span></li><li><b>13</b><span>ab 85 %</span></li></ul></div>
+    <div class="note n2"><span class="grade">gut</span><ul><li><b>12</b><span>ab 80 %</span></li><li><b>11</b><span>ab 75 %</span></li><li><b>10</b><span>ab 70 %</span></li></ul></div>
+    <div class="note n3"><span class="grade">befriedigend</span><ul><li><b>09</b><span>ab 65 %</span></li><li><b>08</b><span>ab 60 %</span></li><li><b>07</b><span>ab 55 %</span></li></ul></div>
+    <div class="note n4"><span class="grade">ausreichend</span><ul><li><b>06</b><span>ab 50 %</span></li><li><b>05</b><span>ab 45 %</span></li><li><b>04</b><span>ab 40 %</span></li></ul></div>
+    <div class="note n5"><span class="grade">mangelhaft</span><ul><li><b>03</b><span>ab 33 %</span></li><li><b>02</b><span>ab 27 %</span></li><li><b>01</b><span>ab 20 %</span></li></ul></div>
+    <div class="note n6"><span class="grade">ungenügend</span><ul><li><b>00</b><span>ab 0 %</span></li></ul></div>
+  </div>
+  <p class="fussnoten">Es wird <strong>nicht aufgerundet</strong>: 64,9 % liegt unter 65 % und bedeutet daher 08 Punkte.</p>
+  <div class="hinweis">
+    <strong>Sprachliche Richtigkeit zählt:</strong> Ab der Qualifikationesphase gilt in allen Fächern mit Ausnahme von Deutsch, dass bei der Bewertung der Klausuren für Verstöße gegen die sprachliche Richtigkeit und die äußere Form bis zu <strong>zwei Punkte abgezogen</strong> (Rechtschreibung, Grammatik, Zeichensetzung) werden können. Die Zahl der abzugsrelevanten Fehler wird auf die Gesamtseitenzahl umgerechnet und ergibt eine Durchschnittsfehlerzahl pro Seite, wobei eine Normseite ca. 120 Wörter umfasst. Bei durchschnittlich 5 oder 6 schwerwiegenden Verstößen pro Seite erfolgt ein Abzug von <strong>01 Notenpunkt</strong>, bei 7 und mehr ein Abzug von <strong>02 Notenpunkten</strong> von der Endnote. Im Fach Deutsch erfolgt eine separate Betrachtung von Verstehensleistung (inhaltliche Bearbeitung) und Darstellungsleistung (Nutzung von Fachbegriffen, Textaufbau, Umgang mit Materialien, sprachliche Gestaltung und Sprachrichtigkeit).
+  </div>
+
+  <div id="gew-print">
+  <div class="gew-head">
+    <h3 style="margin-top:0">Gewichtung der Leistungen: Klausuren &amp; Mitarbeit</h3>
+    <button type="button" class="print-btn no-print" onclick="druckeGewichtung()" aria-label="Tabelle drucken">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+      Tabelle drucken
+    </button>
+  </div>
+  <p>Ihre Halbjahresnote setzt sich aus den <strong>Klausuren</strong> und der <strong>Mitarbeit</strong> zusammen. Wie stark beide Anteile zählen, hängt vom Fach und vom Halbjahr ab. Die Angabe „60 : 40“ bedeutet z. B. 60 % Klausuren und 40 % Mitarbeit. Die letzte Spalte gibt an, wie in Klasse 11 das 1. und 2. Halbjahr zur Jahresnote gewichtet werden.</p>
+  <div class="tab-wrap">
+    <table class="gew">
+      <thead>
+        <tr>
+          <th rowspan="2">Fach</th>
+          <th rowspan="2">Jahrgang</th>
+          <th class="center" colspan="3">Klausur(en) : Mitarbeit</th>
+          <th class="center" rowspan="2">1. : 2. Halbjahr<br><span class="sub">in Klasse 11</span></th>
+        </tr>
+        <tr>
+          <th class="center">reguläres Halbjahr</th>
+          <th class="center">Halbjahr mit nur einer Klausur</th>
+          <th class="center">Halbjahr 13/II</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>AUT</td><td>11–13</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">60 : 40</td><td class="center">40 : 60</td></tr>
+        <tr><td>FpA</td><td>11–13</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">40 : 60</td></tr>
+        <tr><td>FpA</td><td>12.2</td><td class="center">50 : 50</td><td class="center" colspan="3">Projektnote als Gesamtnote</td></tr>
+        <tr><td>BRC</td><td>11–13</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">60 : 40</td><td class="center">30 : 70</td></tr>
+        <tr><td>FpW</td><td>—</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">40 : 60</td></tr>
+        <tr><td>PP</td><td>11–13</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">40 : 60</td></tr>
+        <tr><td>FpS</td><td>11</td><td class="center">—</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">40 : 60</td></tr>
+        <tr><td>FpS</td><td>12.1</td><td class="center">—</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">40 : 60</td></tr>
+        <tr><td>FpS</td><td>12.2</td><td class="center">50 : 50</td><td class="center" colspan="3">Projektnote als Gesamtnote</td></tr>
+        <tr><td>FpS</td><td>13</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">40 : 60</td></tr>
+        <tr><td>TEE</td><td>11–13</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">60 : 40</td><td class="center">40 : 60</td></tr>
+        <tr><td>FpE</td><td>11–13</td><td class="center">—</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">40 : 60</td></tr>
+        <tr><td>FpE</td><td>12.2</td><td class="center">50 : 50</td><td class="center" colspan="3">Projektnote als Gesamtnote</td></tr>
+        <tr><td>BV/VW</td><td>11/I</td><td class="center">40 : 60</td><td class="center">50 : 50</td><td class="center">40 : 60</td><td class="center">40 : 60</td></tr>
+        <tr><td>BV/VW</td><td>11/II</td><td class="center">40 : 60</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">40 : 60</td></tr>
+        <tr><td>BV/VW</td><td>12 + 13</td><td class="center">40 : 60</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">40 : 60</td></tr>
+        <tr><td>BIF</td><td>11–13</td><td class="center">60 : 40</td><td class="center">60 : 40</td><td class="center">50 : 50</td><td class="center">50 : 50</td></tr>
+        <tr><td>Biologie</td><td>11–13</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">60 : 40</td><td class="center">40 : 60</td></tr>
+        <tr><td>Chemie</td><td>—</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">60 : 40</td><td class="center">40 : 60</td></tr>
+        <tr><td>Physik</td><td>—</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">60 : 40</td><td class="center">40 : 60</td></tr>
+        <tr><td>Deutsch</td><td>11–13</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">50 : 50</td></tr>
+        <tr><td>Englisch</td><td>11–13</td><td class="center">40 : 60</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">40 : 60</td></tr>
+        <tr><td>Mathe</td><td>11–13</td><td class="center">40 : 60</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">40 : 60</td></tr>
+        <tr><td>Spanisch</td><td>11–13</td><td class="center">40 : 60</td><td class="center">40 : 60</td><td class="center">40 : 60</td><td class="center">30 : 70</td></tr>
+        <tr><td>Re/WN</td><td>11 + 13</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">50 : 50</td></tr>
+        <tr><td>Ge/Po</td><td>11 + 12</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">40 : 60</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fussnoten">Die geltenden rechtlichen Bestimmungen legen nicht fest, zu welchen Anteilen beide Halbjahre gewichtet werden. Stattdessen ist von einer Ganzjahresnote die Rede. Bei der Notenfindung soll in erster Linie die Leistungsentwicklung berücksichtigt werden. Die aufgeführten Prozentwerte stellen daher nur eine grobe Orientierung dar.</p>
+  </div><!-- /#gew-print -->
+  <p>Am Ende der Einführungsphase entscheidet die Klassenkonferenz über Ihre Versetzung in die Qualifikationsphase. Wenn Sie die Voraussetzungen nicht erfüllen, können Sie die Einführungsphase <strong>einmal wiederholen</strong>. Grundsätzlich müssen Ihre Leistungen „glatt ausreichend“ sein, d. h. <strong>05 Punkte</strong> müssen erreicht sein. Eine Versetzung findet statt, wenn…</p>
+  <ol class="regeln">
+    <li>…Sie in Ihrem fachbezogenen Schwerpunktfach (P1) <strong>mindestens 05 Punkte</strong> haben.</li>
+    <li>…Sie in allen drei Lernbereichen <strong>mindestens 05 Punkte</strong> im Durchschnitt haben – Berechnungsgrundlage ist dabei die Anzahl der vorgegebenen Wochenstunden des jeweiligen Fachs.</li>
+    <li>…Sie in den möglichen zweiten und dritten Prüfungsfächern (DE, EN, MA, ggf. BIO (Q)) <strong>maximal einmal weniger als 05 Punkte</strong> haben.</li>
+    <li>…Sie in <strong>nicht mehr als zwei Fächern</strong> weniger als 05 Punkte haben.</li>
+    <li>…Sie in <strong>keinem Fach</strong> eine ungenügende Leistung (00 Punkte) haben.</li>
+  </ol>
+  <div class="hinweis"><strong>Alle fünf Bedingungen müssen gleichzeitig erfüllt sein!</strong> Auf IServ im Modul <em>Berufliches Gymnasium</em> finden Sie einen Versetzungsrechner: Geben Sie Ihre Halbjahres- und Jahresergebnisse ein, und das Ergebnis wird Ihnen direkt angezeigt. Damit haben Sie einen ersten Hinweis. Die Versetzung selbst beschließt natürlich die Klassenkonferenz.</div>
+</section>
+
+<!-- QUALIFIKATIONSPHASE -->
+<section id="quali">
+  <p class="kicker">Jahrgang 12 und 13</p>
+  <h2>Die Qualifikationsphase</h2>
+  <p class="lead">Diese beiden Schuljahrgänge bilden eine Einheit und enden mit der Abiturprüfung. Ab jetzt rechnen wir nicht mehr in Schuljahren, sondern in Kurshalbjahren. Ihre Leistungen aus allen vier Kurshalbjahren der Qualifikationsphase sowie die Leistungen aus der Abiturprüfung fließen in die Gesamtqualifikation für Ihr Abitur ein.</p>
+  <p>Es lohnt sich also, schon in den Jahrgängen 12 und 13 ordentlich Punkte zu sammeln, da die Kursergebnisse aus diesem ersten Block zwei Drittel der Abiturnote ausmachen. Die Abiturprüfung selbst ist also „nur“ mit einem Drittel gewichtet. Viele denken, dass das die wichtigsten Prüfungen sind, dabei entscheiden schon die gesamten zwei Jahre in der Qualifikationsphase über einen erfolgreichen Abschluss.</p>
+
+  <h3>Ihre Prüfungsfächer für das Abitur</h3>
+  <p>In der Qualifikationsphase gibt es <strong>Kernfächer</strong> (Deutsch, Englisch, Mathematik), die durchgängig belegt werden müssen, sowie <strong>Profilfächer</strong> (die beiden Fächer, die Ihren gewählten Schwerpunkt kennzeichnen) und <strong>Ergänzungsfächer</strong>.</p>
+  <p>Am Ende Ihrer Schulzeit in der Oberstufe steht die Abiturprüfung. Für diese Prüfung wählen Sie insgesamt fünf Prüfungsfächer. Diese fünf Prüfungsfächer setzen sich wie folgt zusammen:</p>
+  <div class="karten">
+    <div class="karte">
+      <h4>Drei Fächer mit erhöhtem Anforderungsniveau</h4>
+      <p>Diese werden in der Qualifikationsphase fünfstündig unterrichtet und sind Ihre ersten bis dritten Prüfungsfächer (P1 bis P3).</p>
+    </div>
+    <div class="karte">
+      <h4>Zwei Fächer mit grundlegendem Anforderungsniveau</h4>
+      <p>Diese werden in der Qualifikationsphase dreistündig unterrichtet und sind Ihre vierten und fünften Prüfungsfächer (P4 und P5), wobei P5 Ihr mündliches Prüfungsfach ist.</p>
+    </div>
+  </div>
+
+  <h3>Kombinationsmöglichkeiten je Schwerpunkt</h3>
+  <div class="tab-wrap">
+    <table class="komb">
+      <thead>
+        <tr>
+          <th rowspan="2">Schwerpunkt</th>
+          <th class="center" colspan="2">Fächer mit erhöhten Anforderungen</th>
+          <th class="center" rowspan="2">Fächer mit grundlegenden Anforderungen<br><span class="sub">4. oder 5. Prüfungsfach</span></th>
+        </tr>
+        <tr>
+          <th class="center">1. Prüfungsfach</th>
+          <th class="center">2. oder 3. Prüfungsfach</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>BRC</strong></td>
+          <td>Betriebswirtschaft mit Rechnungswesen-Controlling</td>
+          <td>Zwei Kernfächer¹⁾</td>
+          <td>Mindestens ein Profilfach (Informationsverarbeitung <u>oder</u> Volkswirtschaft)<br>oder ein Kernfach<br>oder ein Ergänzungsfach</td>
+        </tr>
+        <tr>
+          <td><strong>TEC</strong></td>
+          <td>Technik</td>
+          <td rowspan="3">Zwei Kernfächer¹⁾<br>oder<br>ein Kernfach und ein Ergänzungsfach²⁾</td>
+          <td rowspan="2">Betriebs- und Volkswirtschaft <u>und</u><br>ein Profilfach (Informationsverarbeitung)<br>oder ein Kernfach³⁾<br>oder ein Ergänzungsfach³⁾</td>
+        </tr>
+        <tr>
+          <td><strong>AUT</strong></td>
+          <td>Agrar- und Umwelttechnologie</td>
+        </tr>
+        <tr>
+          <td><strong>PP</strong></td>
+          <td>Pädagogik/Psychologie</td>
+          <td>Mindestens ein Profilfach (Informationsverarbeitung <u>oder</u> Betriebs- und Volkswirtschaft)<br>oder ein Kernfach³⁾<br>oder ein Ergänzungsfach³⁾</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="fussnoten">
+    <ol>
+      <li>Deutsch, Englisch, Mathematik</li>
+      <li>Anstelle von Mathematik kann eine Naturwissenschaft gewählt werden.</li>
+      <li>Wenn als 2. oder 3. Prüfungsfach eine Naturwissenschaft gewählt wird, muss neben einem Profilfach ein Kernfach als 4. oder 5. Prüfungsfach gewählt werden.</li>
+    </ol>
+  </div>
+
+  <h3>Wahl der Prüfungsfächer</h3>
+  <p>Die Wahl der Prüfungsfächer ist ein wichtiger Schritt, der vor Eintritt in die Qualifikationsphase erfolgt. Im Frühjahr der Einführungsphase können Sie Ihre Prüfungsfächerwahl als Vorwahl vornehmen. Als Hilfestellung legen wir Ihnen eine Tabelle mit allen Kombinationsmöglichkeiten vor. Am Ende der Einführungsphase können Sie Ihre Vorwahl korrigieren oder bestätigen, dass alles bleiben soll, wie ursprünglich gewählt.</p>
+  <details>
+    <summary>P4/P5 tauschen – ggf. bis Ende Klasse 12 möglich</summary>
+    <div class="inhalt"><p>Für die Fächer auf grundlegendem Anforderungsniveau (P4 und P5) gilt, dass eine Festlegung bis zum Ende des 12. Schuljahrgangs erfolgen muss. Diese Fächer können Sie untereinander noch bis zum Ende der Klasse 12 unter bestimmten Voraussetzungen tauschen.</p></div>
+  </details>
+  <details>
+    <summary>Günstigerprüfung bei P2 und P3</summary>
+    <div class="inhalt"><p>Für die Fächer auf erhöhtem Anforderungsniveau (P2 und P3) nehmen wir mit der Anmeldung zum Abitur eine <strong>Günstigerprüfung</strong> vor, damit so viele Punkte wie möglich eingebracht werden können, denn P2 wird in den vier Kurshalbjahren <strong>doppelt</strong> und P3 <strong>einfach</strong> gewichtet. Sollte das der Fall sein, informieren wir Sie entsprechend.</p></div>
+  </details>
+  <details>
+    <summary>Tipps für Ihre Entscheidung</summary>
+    <div class="inhalt">
+      <p>Grundsätzlich sollten Sie Ihre Prüfungsfächer nach Interesse wählen. Außerdem finden Sie auf den Seiten des Niedersächsischen Bildungsportals Hinweise zu den Pflichtinhalten der Kurse auf erhöhtem und grundlegendem Anforderungsniveau (P1 bis P4) – vielleicht hilft Ihnen das bei Ihrer Entscheidung. Sie können außerdem Ihre Lehrkräfte ansprechen, was sie Ihnen empfehlen würden.</p>
+    </div>
+  </details>
+
+  <h3>Regeln für die Wahl Ihrer fünf Prüfungsfächer</h3>
+  <ol class="regeln">
+    <li>Ein Fach kann nur als Prüfungsfach gewählt werden, wenn Sie es in der Einführungsphase <strong>mindestens ein Schulhalbjahr</strong> lang belegt haben. Für Fremdsprachen gilt, dass Sie sie das <strong>ganze Schuljahr</strong> in der Einführungsphase belegt haben müssen.</li>
+    <li>Es besteht <strong>kein Anspruch</strong> darauf, ein bestimmtes Prüfungsfach oder eine bestimmte Kombination wählen zu können; dies hängt gelegentlich davon ab, ob ein Kurs zustande kommt.</li>
+    <li>Zum Zeitpunkt der Wahl legen wir Ihnen eine Liste mit allen möglichen Prüfungskombinationen vor, sodass Sie auf jeden Fall alle Voraussetzungen erfüllen.</li>
+  </ol>
+
+  <h3>Wiederholung in Jahrgang 12 oder 13</h3>
+  <p>In der gymnasialen Oberstufe dürfen Sie <strong>4 Jahre verweilen</strong>, d. h. Sie dürfen einmal wiederholen: Entweder wiederholen Sie die Einführungsphase, weil Sie nicht versetzt wurden, oder Sie wiederholen den Jahrgang 12 oder 13, sofern sich ankündigt, dass die Zulassung zum Abitur nicht erfolgen kann. Ihre Tutorin oder Ihr Tutor sucht dann rechtzeitig den Kontakt zu Ihnen, und Sie überlegen gemeinsam, was für Sie sinnvoll wäre. Alternativ können Sie jederzeit einen Termin zu einem Beratungsgespräch mit Herrn Wessel oder Herrn Peper absprechen – wenn Sie möchten, bringen Sie Ihre Eltern bzw. Erziehungsberechtigten gerne mit.</p>
+
+  <h3>Belegungsverpflichtung und Einbringungsverpflichtung</h3>
+  <p>Man unterscheidet die Belegungsverpflichtung von der Einbringungsverpflichtung.</p>
+  <div class="karten">
+    <div class="karte">
+      <h4>Belegungsverpflichtung</h4>
+      <p>Die Belegungsverpflichtung gibt Ihnen an, welche Kurse Sie in welcher Anzahl belegen müssen. Sie ist abhängig von Ihrer Kurswahl.</p>
+    </div>
+    <div class="karte">
+      <h4>Einbringungsverpflichtung</h4>
+      <p>Die Einbringungsverpflichtung ist wichtig, wenn es um die Berechnung der Abiturnote geht: Sie müssen nicht alle Kurse, die Sie belegt haben, auch einbringen. Bitte beachten Sie daher bei der Prüfungskurswahl nicht nur die Fächer, sondern auch Ihre Wochenstundenzahl und die Möglichkeit der Einbringung.</p>
+    </div>
+  </div>
+  <div class="hinweis">
+    <strong>Beispiel 1:</strong> Wenn Sie Geschichte als Prüfungsfach (P5) auswählen, können Sie keinen Sportkurs einbringen.<br>
+    <strong>Beispiel 2:</strong> Wenn Sie Spanisch verpflichtend belegen müssen und zusätzlich Geschichte als Prüfungsfach wählen, haben Sie eine höhere Wochenstundenzahl.
+  </div>
+
+  <h3>Ihre Belegungsverpflichtung im Abitur im Überblick</h3>
+  <div class="tab-wrap">
+    <table>
+      <thead>
+        <tr><th>Fach</th><th class="center">Jg. 12 · erhöhtes Anforderungsniveau (eA)</th><th class="center">Jg. 12 · grundlegendes Anforderungsniveau (gA)</th><th class="center">Jg. 13 · erhöhtes Anforderungsniveau (eA)</th><th class="center">Jg. 13 · grundlegendes Anforderungsniveau (gA)</th></tr>
+      </thead>
+      <tbody>
+        <tr class="gruppe"><td colspan="5">Kernfächer</td></tr>
+        <tr><td>1. Deutsch</td><td class="center">5</td><td class="center">3</td><td class="center">5</td><td class="center">3</td></tr>
+        <tr><td>2. Englisch</td><td class="center">5</td><td class="center">3</td><td class="center">5</td><td class="center">3</td></tr>
+        <tr><td>3. Mathematik</td><td class="center">5</td><td class="center">3</td><td class="center">5</td><td class="center">3</td></tr>
+        <tr><td>4. (Spanisch)</td><td class="center">–</td><td class="center">4</td><td class="center">–</td><td class="center">4</td></tr>
+        <tr class="gruppe blau"><td colspan="5">Ergänzungsfächer</td></tr>
+        <tr><td>5. Biologie</td><td class="center">5 (P2/3)</td><td class="center">3 (P4/5) bzw. 2</td><td class="center">5 (P2/3)</td><td class="center">3 (P4/5) bzw. 2</td></tr>
+        <tr><td>6. Geschichte</td><td class="center">3</td><td class="center">2</td><td class="center">3</td><td class="center">–</td></tr>
+        <tr><td>7. Religion/Werte und Normen</td><td class="center">–</td><td class="center">2</td><td class="center">–</td><td class="center">2</td></tr>
+        <tr><td>8. Sport</td><td class="center">–</td><td class="center">2</td><td class="center">–</td><td class="center">2</td></tr>
+        <tr class="gruppe"><td colspan="5">Profilfächer</td></tr>
+        <tr><td>9. Fachbezogener Schwerpunkt</td><td class="center">4</td><td class="center">–</td><td class="center">4</td><td class="center">–</td></tr>
+        <tr><td>10. Praxis</td><td class="center">–</td><td class="center">2</td><td class="center">–</td><td class="center">2</td></tr>
+        <tr><td>11. VWL/BVW</td><td class="center">–</td><td class="center">3</td><td class="center">–</td><td class="center">3</td></tr>
+        <tr><td>12. Berufliche Informatik</td><td class="center">–</td><td class="center">3</td><td class="center">–</td><td class="center">3</td></tr>
+        <tr><td>13. Q: Doppelqualifikation</td><td class="center">–</td><td class="center">2</td><td class="center">–</td><td class="center">–</td></tr>
+        <tr><td><strong>Wochenstunden</strong></td><td class="center" colspan="2"><strong>max. 38 · min. 33</strong></td><td class="center" colspan="2"><strong>max. 36 · min. 32</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fussnoten">Nähere Informationen dazu finden Sie bei den Hinweisen zur Berechnung von Block I: Leistungen der Qualifikationsphase.</p>
+</section>
+
+<!-- ABITUR -->
+<section id="abitur">
+  <p class="kicker">Ausblick</p>
+  <h2>Die Abiturprüfung und Abschlüsse</h2>
+  <p class="lead">Am Ende der Qualifikationsphase steht die Abiturprüfung. Die Gesamtqualifikation setzt sich aus Ihren Ergebnissen der Qualifikationsphase (<strong>Block I</strong>) und Ihren Ergebnissen der Abiturprüfung (<strong>Block II</strong>) zusammen. Die erworbenen Punkte aus beiden Blöcken ergeben die Gesamtpunktzahl, die wiederum in eine Durchschnittsnote umgerechnet wird. Mit dem Abitur erwerben Sie am Beruflichen Gymnasium die <strong>allgemeine Hochschulreife</strong>, die Sie zum Studium an einer Universität oder Hochschule in allen Bundesländern und Fachrichtungen berechtigt.</p>
+
+  <h3>Block I: Leistungen der Qualifikationsphase</h3>
+  <p>In diesen Block werden Ihre Schulhalbjahresergebnisse aus den vier Schulhalbjahren der Qualifikationsphase (Jahrgangsstufen 12 und 13) eingebracht. Insgesamt sind <strong>36 Schulhalbjahresergebnisse („Kursnoten“)</strong> nach folgendem Schema einzubringen – hier geht es also um die Einbringungsverpflichtung, während sich Ihr Stundenplan bislang um die Belegungsverpflichtung gedreht hat.</p>
+  <div class="tab-wrap" style="max-width:520px">
+    <table style="min-width:0">
+      <thead><tr><th>Fächer</th><th>Gewichtung</th><th class="center">Kurse</th></tr></thead>
+      <tbody>
+        <tr><td>P1, P2</td><td>doppelte Gewichtung</td><td class="center">8</td></tr>
+        <tr><td>P3, P4, P5</td><td>einfache Gewichtung</td><td class="center">12</td></tr>
+        <tr><td>Weitere Fächer</td><td>einfache Gewichtung</td><td class="center">16</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h4 class="blk">Block I: Wichtige Regeln</h4>
+  <ol class="regeln">
+    <li><strong>Keine einzubringende Kursnote darf 00 Punkte betragen.</strong> Ein Ergebnis von 00 Punkten bedeutet, dass das Fach als nicht besucht gilt und die Belegungsverpflichtung nicht erfüllt ist, was zur Wiederholung führen kann, sofern die Verweildauer nicht überschritten ist.</li>
+    <li>Es müssen <strong>mindestens 200 Punkte</strong> in Block I erreicht werden, um die Abiturprüfung zu bestehen. Die Berechnung erfolgt nach der Formel <strong>E I = 40 × P / S</strong>. Dabei ist P die Punktsumme aller eingebrachten und entsprechend gewichteten Kursnoten, und S die „gewichtete“ Anzahl der eingebrachten Ergebnisse (also: 36 Ergebnisse mit 8 doppelt gewichteten zählen als S = 44).</li>
+    <li>Bei den eingebrachten Kursnoten dürfen <strong>maximal sieben Kurse</strong> vorliegen, deren Ergebnisse weniger als 05 Punkte betragen. Davon dürfen höchstens <strong>drei Kursnoten</strong> weniger als 05 Punkte in den Prüfungsfächern auf erhöhtem Anforderungsniveau (P1 bis P3) sein.</li>
+  </ol>
+  <p>Am Ende der Kursjahre 12.2, 13.1 und 13.2 erhalten Sie übrigens immer eine vollständige Notenübersicht.</p>
+
+  <h3>Ihre Einbringungsverpflichtung</h3>
+  <p>Je nachdem, welche Prüfungsfachkombination Sie gewählt haben, sind folgende Kursnoten in Block I einzubringen. Dabei gilt grundsätzlich: <strong>36 Kursnoten</strong> sind einzubringen · ein mit 00 Punkten bewertetes Unterrichtsfach erfüllt eine Belegungsverpflichtung nicht und kann somit auch nicht eingebracht werden · von zwei thematisch identischen Kursen kann nur einer eingebracht werden · bei Wiederholung eines Schulhalbjahres werden die Ergebnisse der im ersten Durchgang belegten Unterrichtsfächer nicht angerechnet.</p>
+  <div class="hinweis">
+    <strong>So lesen Sie die Tabelle:</strong> Die Anzahl der einzubringenden Schulhalbjahresnoten ist <strong>für alle Schwerpunkte gleich</strong>. Nur bei den beiden Fächern <strong>11. BVW/VWL</strong> und <strong>12. Berufliche Informatik</strong> gilt in der Fachrichtung <strong>Wirtschaft</strong> ein abweichender Wert – dieser steht in der Spalte „Wirtschaft“.
+  </div>
+  <div class="tab-wrap">
+    <table>
+      <thead>
+        <tr><th>Fach</th><th class="center">Alle Schwerpunkte</th><th class="center">davon Wirtschaft</th></tr>
+      </thead>
+      <tbody>
+        <tr class="gruppe"><td colspan="3">Kernfächer</td></tr>
+        <tr><td>1. Deutsch</td><td class="center">4</td><td class="center">–</td></tr>
+        <tr><td>2. Fremdsprache¹</td><td class="center">4²</td><td class="center">–</td></tr>
+        <tr><td>3. Mathematik</td><td class="center">4</td><td class="center">–</td></tr>
+        <tr class="gruppe blau"><td colspan="3">Ergänzungsfächer</td></tr>
+        <tr><td>5. Naturwissenschaft</td><td class="center">4</td><td class="center">–</td></tr>
+        <tr><td>6. Geschichte</td><td class="center">2 (4)³</td><td class="center">–</td></tr>
+        <tr><td>7. Religion/Werte und Normen</td><td class="center">2</td><td class="center">–</td></tr>
+        <tr><td>8. Sport/Fremdsprache/Praxis</td><td class="center">2 (4)⁵ als Einbringung von „Restnoten“</td><td class="center">–</td></tr>
+        <tr class="gruppe"><td colspan="3">Profilfächer</td></tr>
+        <tr><td>9. Fachbezogener Schwerpunkt</td><td class="center">4</td><td class="center">–</td></tr>
+        <tr><td>10. Praxis</td><td class="center">2⁴</td><td class="center">–</td></tr>
+        <tr class="split"><td>11. BVW/VWL</td><td class="center">4</td><td class="center">4²</td></tr>
+        <tr class="split"><td>12. Berufliche Informatik</td><td class="center">4</td><td class="center">4²</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="fussnoten">
+    <ol>
+      <li>Die Kursergebnisse müssen dieselbe Fremdsprache betreffen.</li>
+      <li>Wenn man Spanisch belegen muss, muss man 4 Kurse Spanisch einbringen. Wählt man Englisch als Prüfungsfach, müssen vier Kurse Englisch und zwei Kurse Spanisch eingebracht werden. Wenn in der Fachrichtung Wirtschaft neben Englisch auch Spanisch als Prüfungsfach gewählt wird, sind jeweils vier Kurse einzubringen. In diesem Fall verringert sich die Einbringungsverpflichtung für Berufliche Informatik oder Volkswirtschaft, wenn es nicht Prüfungsfach ist, auf zwei Kursergebnisse.</li>
+      <li>Wird Geschichte oder Religion als Prüfungsfach gewählt, sind vier Kurse einzubringen.</li>
+      <li>Es sind die beiden Kurse des ersten Schuljahres der Qualifikationsphase einzubringen.</li>
+      <li>Es können zwei Schulhalbjahresergebnisse aus einem der drei Fächer eingebracht werden; dabei kann es sich auch um zwei weitere Schulhalbjahresergebnisse aus einer Fremdsprache nach den Fußnoten 1 und 2 handeln.</li>
+    </ol>
+  </div>
+
+  <h3>Block II: Ergebnisse der Abiturprüfung</h3>
+  <p>In diesen Block fließen die Ergebnisse Ihrer fünf Prüfungsfächer (P1 bis P5) in der Abiturprüfung ein. Die Ergebnisse aller fünf Prüfungsfächer werden jeweils in <strong>vierfacher Wertung</strong> eingebracht.</p>
+  <ol class="regeln">
+    <li>Es müssen <strong>mindestens 100 Punkte</strong> in Block II erreicht werden, um die Abiturprüfung zu bestehen.</li>
+    <li>In <strong>drei der fünf Prüfungsfächer</strong> müssen jeweils mindestens <strong>20 Punkte</strong> erreicht worden sein. (Da die Ergebnisse vierfach zählen, entspricht dies einem Prüfungsergebnis von mindestens 05 Punkten in einfacher Wertung.)</li>
+  </ol>
+
+  <h3>Gesamtpunktzahl und Durchschnittsnote</h3>
+  <p>Die Gesamtpunktzahl (E) ist die Summe der Punkte aus Block I und Block II: E = E I + E II.</p>
+  <ul style="margin:0 0 14px 20px">
+    <li style="margin-bottom:8px">Um die Abiturprüfung zu bestehen, muss die Gesamtpunktzahl mindestens 300 Punkte betragen. Diese Mindestpunktzahl entspricht einer Durchschnittsnote von 4,0.</li>
+    <li>Die Gesamtpunktzahl wird anhand einer vorgegebenen Tabelle in die endgültige Durchschnittsnote des Abiturs umgerechnet.</li>
+  </ul>
+  </div>
+  <p>Zusammenfassend ergibt die Gesamtqualifikation ein umfassendes Bild Ihrer Leistungen sowohl während der Qualifikationsphase als auch in den abschließenden Prüfungen. Ihnen sollte bewusst sein, dass Sie insbesondere mit den Ergebnissen der vier Kurshalbjahre aus Block I Ihre Abiturnote deutlich beeinflussen können.</p>
+
+  <h3>Abitur oder Fachhochschulreife</h3>
+  <details>
+    <summary>Allgemeine Hochschulreife (Abitur)</summary>
+    <div class="inhalt">
+      <p>Wenn Sie in Block I und Block II alle Voraussetzungen erfüllen, dann haben Sie die allgemeine Hochschulreife erworben – das Abitur, das Sie auch an einem allgemeinbildenden Gymnasium ablegen können.</p>
+      <p>Auf Ihrem Abiturzeugnis können auch zusätzliche Nachweise wie das Kleine Latinum, Latinum, Großes Latinum, Graecum oder Hebraicum bescheinigt werden, sofern die jeweiligen Voraussetzungen erfüllt sind. Sollten Sie also von einem allgemeinbildenden Gymnasium zu uns gewechselt sein und dort Latein belegt haben, dann bringen Sie Herrn Schünemann spätestens bis zur Anmeldung zum Abitur eine Bescheinigung Ihrer alten Schule mit, dass Sie das Kleine Latinum erreicht haben.</p>
+    </div>
+  </details>
+  <details>
+    <summary>Fachhochschulreife (schulischer und praktischer Teil)</summary>
+    <div class="inhalt">
+      <p>Sollten Sie nach Block I nicht zum Abitur zugelassen werden, prüfen wir gemeinsam, ob Sie den <strong>schulischen Teil der Fachhochschulreife</strong> erlangt haben. Der schulische Teil kann frühestens am Ende des ersten Schuljahres der Qualifikationsphase (Jahrgang 12) erreicht werden. Sie müssen auf jeden Fall Ihr P1-Fach, Deutsch, eine Fremdsprache, Mathematik und eine Naturwissenschaft einbringen. Wenn Sie eine zuverlässige Berechnung dazu haben möchten, sprechen Sie gerne Ihre Tutorin, Ihren Tutor oder Herrn Peper an.</p>
+      <p>Für die Zuerkennung der <strong>vollständigen Fachhochschulreife</strong> ist zusätzlich zum schulischen Teil ein mindestens einjähriger praktischer Teil (z. B. ein berufsbezogenes Praktikum oder ein Ausbildungsabschluss) nachzuweisen.</p>
+    </div>
+  </details>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt">
+  <p class="kicker">Weitere Informationen und Unterstützung</p>
+  <h2>Ihre Ansprechpersonen</h2>
+  <p class="lead">Wichtige Ansprechpartner sind insbesondere Ihre Tutorin oder Ihr Tutor.<br> Für grundlegende Fragen zur Oberstufe steht Ihnen auch die Leitung des Beruflichen Gymnasiums zur Verfügung.</p>
+  <div class="kontakt-grid">
+    <div class="kontakt">
+      <span class="rolle">Abteilungsleitung des Beruflichen Gymnasiums</span>
+      <h4>Herr Wessel</h4>
+      <p><a href="mailto:wessel@bbs-nienburg.de">wessel@bbs-nienburg.de</a><br>Telefon: 05021 609-268</p>
+    </div>
+    <div class="kontakt">
+      <span class="rolle">Stellvertretende Abteilungsleitung des Beruflichen Gymnasiums</span>
+      <h4>Herr Peper</h4>
+      <p><a href="mailto:peper@bbs-nienburg.de">peper@bbs-nienburg.de</a><br>Telefon: 05021 609-268</p>
+    </div>
+    <div class="kontakt">
+      <span class="rolle">Jahrgangsleitungen</span>
+      <h4>Frau Oelschlägel</h4>
+      <p><a href="mailto:oelschlaegel@bbs-nienburg.de">oelschlaegel@bbs-nienburg.de</a></p>
+      <h4>Frau Beermann</h4>
+      <p><a href="mailto:beermann@bbs-nienburg.de">beermann@bbs-nienburg.de</a></p>
+      <h4>Herr Friedrich</h4>
+      <p><a href="mailto:j.friedrich@bbs-nienburg.de">j.friedrich@bbs-nienburg.de</a></p>
+    </div>
+  </div>
+
+  <p style="margin-top:28px">Herr Peper und Herr Wessel stehen Ihnen außerdem regelmäßig im Raum A30 zur Verfügung, um Ihre Fragen zu beantworten: Wir schauen gemeinsam Ihre Noten an, beraten Sie bei Fragen zur Kurswahl, Abiturzulassung und vielem mehr. Tragen Sie Ihre Fragen nicht lange mit sich herum und spekulieren Sie nicht mit Ihren Freunden, wie es laufen könnte – sondern holen Sie sich einen fachlich sicheren Rat ein.</p>
+  <p>Informationen zu Studiengängen, Berufswahl und Bewerbungsverfahren erhalten Sie von Herrn Block. Er ist für die Berufs- und Studienorientierung in den beruflichen Gymnasien zuständig und organisiert für Sie die Teilnahme an Hochschulinformationstagen. Sie erreichen Herrn Block unter block@bbs-nienburg.de.</p>
+  <p>Wenn Sie die Inhalte und Regelungen für das Berufliche Gymnasium noch einmal vom Kultusministerium nachlesen möchten, können Sie das <a href="https://www.mk.niedersachsen.de/startseite/schule/unsere_schulen/berufsbildende_schulen/berufliches_gymnasium/das-berufliche-gymnasium-6474.html">hier</a> machen. Wir beziehen uns mit allen Aussagen und Darstellungen auf diese Quelle.</p>
+  <h3>Sie schaffen das!</h3>
+  <p>Ob Sie ein Ziel erreichen, hängt nicht nur von Ihrem Talent oder Wissen ab – sondern vor allem von Ihrer Haltung. Wenn Sie sich selbst zutrauen, Herausforderungen zu meistern, werden Sie Lösungen finden. Positives Denken bedeutet nicht, immer glücklich zu sein – sondern an sich zu glauben, auch wenn es schwierig wird.</p>
+  <p>Ihr Mindset – also Ihre innere Haltung – beeinflusst, wie Sie mit Rückschlägen umgehen, wie motiviert Sie lernen und wie viel Energie Sie in Ihre Ziele stecken. Deshalb lohnt es sich, Ihr Denken zu trainieren – genau wie einen Muskel.</p>
+  <p>Ein kleiner Schritt pro Tag bringt Sie weiter als ein großer Plan, den Sie nie anfangen. Mit einem Habit Tracker können Sie sich gute Gewohnheiten angewöhnen – z. B. 10 Minuten Vokabeln am Tag, einen positiven Gedanken aufschreiben oder eine kurze Bewegungseinheit einbauen. Sie werden überrascht sein, was sich in nur 30 Tagen verändert.</p>
+  <p>Machen Sie sich bewusst: Sie haben jeden Tag die Wahl, wie Sie denken, handeln und sich entwickeln. Fangen Sie heute an – für sich und Ihre Zukunft.</p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <strong>BBS Nienburg</strong> · Berufliches Gymnasium<br>
+      Berliner Ring 45 · 31582 Nienburg/Weser
+    </div>
+    <div>
+      Stand: August 2026
+    </div>
+  </div>
+</footer>
+
+<script>
+function druckeGewichtung(){
+  var src=document.getElementById('gew-print');
+  if(!src){return;}
+  var clone=src.cloneNode(true);
+  clone.querySelectorAll('.no-print').forEach(function(el){el.remove();});
+  var inhalt=clone.innerHTML;
+  var css=""
+    +"@page{size:A4 portrait;margin:12mm}"
+    +"*{box-sizing:border-box;margin:0;padding:0}"
+    +"body{font-family:'Inter',Arial,sans-serif;color:#14202e;font-size:10pt;line-height:1.4}"
+    +".gew-head{margin-bottom:6pt}"
+    +"h3{font-family:'Space Grotesk',Arial,sans-serif;font-size:15pt;color:#1e5e23;margin-bottom:6pt}"
+    +"p{margin:0 0 8pt;font-size:9.5pt}"
+    +".tab-wrap{overflow:visible;border:none;box-shadow:none;border-radius:0;margin:6pt 0}"
+    +"table{border-collapse:collapse;width:100%;font-size:9pt;table-layout:fixed}"
+    +"th,td{border:.5pt solid #9aa3ad;padding:3pt 4pt;text-align:left;word-wrap:break-word}"
+    +"td.center,th.center{text-align:center}"
+    +"td.center{white-space:nowrap}"
+    +"thead th{background:#2f6d1f;color:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact;font-family:'Space Grotesk',Arial,sans-serif;font-weight:600}"
+    +"table td:first-child{font-weight:600;color:#1e5e23}"
+    +".sub{display:block;font-weight:400;font-size:8pt}"
+    +".fussnoten{font-size:8pt;color:#444;margin-top:6pt}"
+    +"tr{page-break-inside:avoid}"
+    +"thead{display:table-header-group}";
+  var w=window.open('','_blank');
+  if(!w){alert('Bitte erlauben Sie Pop-up-Fenster, um die Tabelle zu drucken.');return;}
+  w.document.open();
+  w.document.write('<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><title>Gewichtung der Leistungen – BBS Nienburg</title><style>'+css+'</style></head><body>'+inhalt+'</body></html>');
+  w.document.close();
+  w.focus();
+  var gedruckt=false;
+  function drucke(){if(gedruckt)return;gedruckt=true;w.print();}
+  if(w.document.readyState==='complete'){setTimeout(drucke,300);}
+  else{w.onload=function(){setTimeout(drucke,300);};setTimeout(drucke,800);}
+  w.onafterprint=function(){w.close();};
+}
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var bar = document.getElementById('progress');
+  function onScroll(){
+    var h=document.documentElement, max=h.scrollHeight-h.clientHeight;
+    bar.style.width=(max>0?((h.scrollTop||document.body.scrollTop)/max*100):0).toFixed(2)+'%';
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  var targets=document.querySelectorAll('section > .kicker, section > h2, section > h3, section > p, .karte, .t-step, .note, .regeln li, details, .hinweis, .tab-wrap, .zitat, .kontakt, h4.blk');
+  if(reduce||!('IntersectionObserver' in window)){
+    targets.forEach(function(t){t.classList.add('vis');});
+  } else {
+    targets.forEach(function(t){t.classList.add('reveal');});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}});},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+    targets.forEach(function(t){io.observe(t);});
+  }
+
+  var links=[].slice.call(document.querySelectorAll('.nav-links a')), map={};
+  links.forEach(function(a){var id=a.getAttribute('href').slice(1);var s=document.getElementById(id);if(s)map[id]=a;});
+  var secs=Object.keys(map).map(function(id){return document.getElementById(id);});
+  if('IntersectionObserver' in window){
+    var nio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.remove('active');});var a=map[e.target.id];if(a)a.classList.add('active');}});},{rootMargin:'-45% 0px -50% 0px'});
+    secs.forEach(function(s){nio.observe(s);});
+  }
+})();
+</script>
+</body>
+</html>
