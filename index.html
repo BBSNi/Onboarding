@@ -195,6 +195,20 @@ table.gew thead{position:sticky;top:0;z-index:2}
 table.gew thead th{position:sticky;box-shadow:inset 0 -1px 0 rgba(255,255,255,.4),0 2px 6px rgba(16,34,64,.18)}
 table.gew thead tr:first-child th{top:0}
 table.gew thead tr:nth-child(2) th{top:35px}
+/* Fachbezogene Leistungsbewertung */
+#gew-print .tab-wrap:has(table.gew-fach){max-height:62vh;overflow:auto}
+table.gew-fach{font-size:.84rem}
+table.gew-fach col.c-fach{width:15%}table.gew-fach col.c-ap{width:22%}table.gew-fach col.c-gew{width:63%}
+table.gew-fach th,table.gew-fach td{padding:8px 11px;text-align:left;vertical-align:top}
+table.gew-fach thead th{position:sticky;top:0;z-index:2;box-shadow:inset 0 -1px 0 rgba(255,255,255,.4),0 2px 6px rgba(16,34,64,.18)}
+table.gew-fach td.fach{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--gruen-tief)}
+table.gew-fach td.fach .stand{display:block;margin-top:4px;font-family:'Inter',sans-serif;font-weight:400;font-size:.72rem;color:var(--grau);font-style:italic}
+table.gew-fach td.ap{color:var(--grau)}
+table.gew-fach .jg{display:grid;grid-template-columns:auto 1fr;gap:8px;margin-bottom:5px}
+table.gew-fach .jg:last-child{margin-bottom:0}
+table.gew-fach .jg .lab{color:var(--gruen-dunkel);font-family:'Space Grotesk',sans-serif;font-weight:600;white-space:nowrap}
+table.gew-fach .dash{color:var(--grau)}
+table.gew-fach tbody tr:nth-child(even){background:#FAFCF7}
 table.komb td u{text-decoration:underline;text-underline-offset:2px}
 td.center,th.center{text-align:center}
 .fussnoten{font-size:.78rem;color:var(--grau);max-width:82ch}
@@ -430,69 +444,200 @@ footer{background:linear-gradient(165deg,#1E5E23,#123F1A);color:#C4DDB4}
     <strong>Sprachliche Richtigkeit zählt:</strong> Ab der Qualifikationsphase gilt in allen Fächern mit Ausnahme von Deutsch, dass bei der Bewertung der Klausuren für Verstöße gegen die sprachliche Richtigkeit (Rechtschreibung, Grammatik, Zeichensetzung) und die äußere Form bis zu <strong>zwei Punkte abgezogen werden können</strong>. Die Zahl der abzugsrelevanten Fehler wird auf die Gesamtseitenzahl umgerechnet und ergibt eine Durchschnittsfehlerzahl pro Seite, wobei eine Normseite ca. 120 Wörter umfasst. Bei durchschnittlich 5 oder 6 schwerwiegenden Verstößen pro Seite erfolgt ein Abzug von <strong>01 Notenpunkt</strong>, bei 7 und mehr ein Abzug von <strong>02 Notenpunkten</strong> von der Endnote. Im Fach Deutsch erfolgt eine separate Betrachtung von Verstehensleistung (inhaltliche Bearbeitung) und Darstellungsleistung (Nutzung von Fachbegriffen, Textaufbau, Umgang mit Materialien, sprachliche Gestaltung und Sprachrichtigkeit).
   </div>
 
-<!--   <details class="gew-drop">
+  <details class="gew-drop">
     <summary>
-      <span class="gew-sum-title">Gewichtung der Leistungen: Klausuren &amp; Mitarbeit</span>
-      <span class="gew-sum-hint">Übersicht aller Fächer</span>
+      <span class="gew-sum-title">Leistungsbewertung nach Fächern</span>
+      <span class="gew-sum-hint">Gewichtung von Mitarbeit und Klausuren · Übersicht aller Fächer</span>
     </summary>
-   <div class="gew-body">
+    <div class="gew-body">
       <div id="gew-print">
         <div class="gew-head">
-          <p class="gew-intro">Ihre Halbjahresnote setzt sich aus den <strong>Klausuren</strong> und der <strong>Mitarbeit</strong> zusammen. Wie stark beide Anteile zählen, hängt vom Fach und vom Halbjahr ab. Die Angabe „60 : 40“ bedeutet z. B. 60 % Klausuren und 40 % Mitarbeit. Die letzte Spalte gibt an, wie in Klasse 11 das 1. und 2. Halbjahr zur Jahresnote gewichtet werden.</p>
+          <p class="gew-intro">Ihre Halbjahresnote setzt sich aus den <strong>Klausuren</strong> und der <strong>Mitarbeit</strong> zusammen. Die folgende Übersicht fasst die aktuellen Aussagen der Fachgruppen zur Gewichtung von Mitarbeit und Klausuren zusammen (Stand: 16. Aug. 2026 · Ansprechpartner: Herr Schünemann).</p>
           <button type="button" class="print-btn no-print" onclick="druckeGewichtung()" aria-label="Tabelle drucken">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
             Drucken
           </button>
         </div>
         <div class="tab-wrap">
-    <table class="gew">
-      <thead>
-        <tr>
-          <th rowspan="2">Fach</th>
-          <th rowspan="2">Jahrgang</th>
-          <th class="center" colspan="3">Klausur(en) : Mitarbeit</th>
-          <th class="center" rowspan="2">1. : 2. Halbjahr<br><span class="sub">in Klasse 11</span></th>
-        </tr>
-        <tr>
-          <th class="center">reguläres Halbjahr</th>
-          <th class="center">Halbjahr mit nur einer Klausur</th>
-          <th class="center">Halbjahr 13/II</th>
-        </tr>
-      </thead>
+<table class="gew-fach">
+      <colgroup><col class="c-fach"><col class="c-ap"><col class="c-gew"><!-- <col class="c-kl"> --></colgroup>
+      <thead><tr><th>Fach</th><th>Ansprechpartner/in</th><th>Gewichtung (Mitarbeit&nbsp;:&nbsp;Klausuren)</th><!-- <th>Klausuren &amp; Besonderheiten</th> --></tr></thead>
       <tbody>
-        <tr><td>AUT</td><td>11–13</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">60 : 40</td><td class="center">40 : 60</td></tr>
-        <tr><td>FpA</td><td>11–13</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">40 : 60</td></tr>
-        <tr><td>FpA</td><td>12.2</td><td class="center">50 : 50</td><td class="center" colspan="3">Projektnote als Gesamtnote</td></tr>
-        <tr><td>BRC</td><td>11–13</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">60 : 40</td><td class="center">30 : 70</td></tr>
-        <tr><td>FpW</td><td>—</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">40 : 60</td></tr>
-        <tr><td>PP</td><td>11–13</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">40 : 60</td></tr>
-        <tr><td>FpS</td><td>11</td><td class="center">—</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">40 : 60</td></tr>
-        <tr><td>FpS</td><td>12.1</td><td class="center">—</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">40 : 60</td></tr>
-        <tr><td>FpS</td><td>12.2</td><td class="center">50 : 50</td><td class="center" colspan="3">Projektnote als Gesamtnote</td></tr>
-        <tr><td>FpS</td><td>13</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">40 : 60</td></tr>
-        <tr><td>TEE</td><td>11–13</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">60 : 40</td><td class="center">40 : 60</td></tr>
-        <tr><td>FpE</td><td>11–13</td><td class="center">—</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">40 : 60</td></tr>
-        <tr><td>FpE</td><td>12.2</td><td class="center">50 : 50</td><td class="center" colspan="3">Projektnote als Gesamtnote</td></tr>
-        <tr><td>BV/VW</td><td>11/I</td><td class="center">40 : 60</td><td class="center">50 : 50</td><td class="center">40 : 60</td><td class="center">40 : 60</td></tr>
-        <tr><td>BV/VW</td><td>11/II</td><td class="center">40 : 60</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">40 : 60</td></tr>
-        <tr><td>BV/VW</td><td>12 + 13</td><td class="center">40 : 60</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">40 : 60</td></tr>
-        <tr><td>BIF</td><td>11–13</td><td class="center">60 : 40</td><td class="center">60 : 40</td><td class="center">50 : 50</td><td class="center">50 : 50</td></tr>
-        <tr><td>Biologie</td><td>11–13</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">60 : 40</td><td class="center">40 : 60</td></tr>
-        <tr><td>Chemie</td><td>—</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">60 : 40</td><td class="center">40 : 60</td></tr>
-        <tr><td>Physik</td><td>—</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">60 : 40</td><td class="center">40 : 60</td></tr>
-        <tr><td>Deutsch</td><td>11–13</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">50 : 50</td></tr>
-        <tr><td>Englisch</td><td>11–13</td><td class="center">40 : 60</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">40 : 60</td></tr>
-        <tr><td>Mathe</td><td>11–13</td><td class="center">40 : 60</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">40 : 60</td></tr>
-        <tr><td>Spanisch</td><td>11–13</td><td class="center">40 : 60</td><td class="center">40 : 60</td><td class="center">40 : 60</td><td class="center">30 : 70</td></tr>
-        <tr><td>Re/WN</td><td>11 + 13</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">50 : 50</td><td class="center">50 : 50</td></tr>
-        <tr><td>Ge/Po</td><td>11 + 12</td><td class="center">—</td><td class="center">—</td><td class="center">—</td><td class="center">40 : 60</td></tr>
+        <tr>
+          <td class="fach">AUT und PRA<span class="stand">Stand: 13. Aug. 2026</span></td>
+          <td class="ap">Frau Gruis</td>
+          <td><span class="jg"><span class="lab">11–13</span><span>Mitarbeit 50 % – Klausuren 50 %</span></span>
+              <span class="jg"><span class="lab">11</span><span>1. Halbjahr 50 % – 2. Halbjahr 50 %</span></span></td>
+          <!-- Klausuren-Spalte (auskommentiert):
+<td><span class="jg"><span class="lab">11</span><span>insgesamt 3 Klausuren (oder ein KLN) im Schuljahr</span></span>
+              <span class="jg"><span class="lab">12</span><span>12/1: 2 Klausuren; 12/2: 1 Klausur und wissenschaftspropädeutischer Teil der Projektarbeit</span></span>
+              <span class="jg"><span class="lab">13</span><span>je Halbjahr 1 Klausur</span></span></td>
+-->
+        </tr>
+        <tr>
+          <td class="fach">BIF<span class="stand">Stand: 16. Dez. 2025</span></td>
+          <td class="ap">Frau Brünjes</td>
+          <td><span class="jg"><span class="lab">11</span><span>Mitarbeit 40 % – Klausuren 60 %; 1. Halbjahr 40 % – 2. Halbjahr 60 %</span></span>
+              <span class="jg"><span class="lab">12</span><span>Mitarbeit 40 % – Klausuren 60 %</span></span>
+              <span class="jg"><span class="lab">13</span><span>Mitarbeit 50 % – Klausuren 50 %</span></span></td>
+          <!-- Klausuren-Spalte (auskommentiert):
+<td><span class="jg"><span class="lab">11</span><span>1 Klausur in 11/1 und 2 Klausuren in 11/2</span></span>
+              <span class="jg"><span class="lab">12</span><span>2 Klausuren pro Halbjahr</span></span>
+              <span class="jg"><span class="lab">13</span><span>1 Klausur pro Halbjahr</span></span></td>
+-->
+        </tr>
+        <tr>
+          <td class="fach">BRC und PRW<span class="stand">Stand: 5. Febr. 2026</span></td>
+          <td class="ap">Herr Seemeyer</td>
+          <td><span class="jg"><span class="lab">11–13</span><span>Mitarbeit 50 % – Klausuren (+ Portfolio) 50 %</span></span>
+              <span class="jg"><span class="lab">11</span><span>1. Halbjahr 30 % – 2. Halbjahr 70 %</span></span></td>
+          <!-- Klausuren-Spalte (auskommentiert):
+<td><span class="jg"><span class="lab">BRC</span><span>11, 12/1 und 13/1: je 1 Klausur und 1 Portfolio. 12/2: 1 Klausur und wissenschaftspropädeutischer Teil der Projektarbeit. 13/2: 1 Klausur</span></span>
+              <span class="jg"><span class="lab">PRW</span><span>11, 12/1 und 13: je 1 Klausur. 12/2: Projektarbeit</span></span></td>
+-->
+        </tr>
+        <tr>
+          <td class="fach">BV<span class="stand">Stand: 9. Okt. 2025</span></td>
+          <td class="ap">Herr Schünemann</td>
+          <td><span class="jg"><span class="lab">11</span><span>Mitarbeit 60 % – Klausuren 40 %; 1. Halbjahr 40 % – 2. Halbjahr 60 %</span></span>
+              <span class="jg"><span class="lab">12</span><span>Mitarbeit 60 % – Klausuren 40 %</span></span>
+              <span class="jg"><span class="lab">13/1</span><span>Mitarbeit 60 % – Klausuren 40 %</span></span>
+              <span class="jg"><span class="lab">13/2</span><span>Mitarbeit 50 % – Klausuren 50 %</span></span></td>
+          <!-- Klausuren-Spalte (auskommentiert):
+<td><span class="jg"><span class="lab">11</span><span>je Halbjahr 1 Klausur (oder ein KLN)</span></span>
+              <span class="jg"><span class="lab">12</span><span>je Halbjahr 1 Klausur</span></span>
+              <span class="jg"><span class="lab">13/1</span><span>1 Klausur</span></span>
+              <span class="jg"><span class="lab">13/2</span><span>1 Klausur oder ein KLN</span></span></td>
+-->
+        </tr>
+        <tr>
+          <td class="fach">Deutsch<span class="stand">Stand: 11. Aug. 2026</span></td>
+          <td class="ap">Frau Heymann</td>
+          <td><span class="jg"><span class="lab">11–13</span><span>Mitarbeit 50 % – Klausuren 50 %</span></span></td>
+          <!-- Klausuren-Spalte (auskommentiert):
+<td><span class="jg"><span class="lab">11–13</span><span>pro Halbjahr je 1 Klausur</span></span></td>
+-->
+        </tr>
+        <tr>
+          <td class="fach">Englisch<span class="stand">Stand: 14. Jan. 2025</span></td>
+          <td class="ap">Frau Doillon</td>
+          <td><span class="jg"><span class="lab">11–13</span><span>bei 1 Klausur: Mitarbeit 60 % – Klausuren 40 %; bei 2 Klausuren: Mitarbeit 50 % – Klausuren 50 %</span></span>
+              <span class="jg"><span class="lab">11</span><span>1. Halbjahr 40 % – 2. Halbjahr 60 %</span></span></td>
+          <!-- Klausuren-Spalte (auskommentiert):
+<td><span class="jg"><span class="lab">11–13</span><span>je 1 Klausur pro Halbjahr (Ausnahmen jedoch aufgrund von Klausurformaten (z. B. Hörverständnis, Mediation) möglich, aber höchstens 3 Klausuren im gesamten Schuljahr)</span></span></td>
+-->
+        </tr>
+        <tr>
+          <td class="fach">Geschichte<span class="stand">Stand: 15. April 2026</span></td>
+          <td class="ap">Herr Schünemann</td>
+          <td><span class="jg"><span class="lab">11–12</span><span>Mitarbeit 60 % – Klausuren 40 %</span></span></td>
+          <!-- Klausuren-Spalte (auskommentiert):
+<td><span class="jg"><span class="lab">11–12</span><span>je 1 Klausur (oder ein KLN) pro Halbjahr</span></span></td>
+-->
+        </tr>
+        <tr>
+          <td class="fach">Mathematik<span class="stand">Stand: 12. Jan. 2026</span></td>
+          <td class="ap">Frau Fabricius</td>
+          <td><span class="jg"><span class="lab">11–13</span><span>bei 1 Klausur: Mitarbeit 60 % – Klausuren 40 % (Ausnahme bei Halbjahr mit Vorabi-Klausur: Mitarbeit 50 % – Klausuren 50 %); bei 2 Klausuren: Mitarbeit 50 % – Klausuren 50 %</span></span>
+              <span class="jg"><span class="lab">11</span><span>1. Halbjahr 50 % – 2. Halbjahr 50 %</span></span></td>
+          <!-- Klausuren-Spalte (auskommentiert):
+<td><span class="dash">—</span></td>
+-->
+        </tr>
+        <tr>
+          <td class="fach">Naturwissenschaften<span class="stand">Stand: 12. Dez. 2025</span></td>
+          <td class="ap">Frau Richert-Horn</td>
+          <td><span class="jg"><span class="lab">11–13</span><span>Mitarbeit 50 % – Klausuren 50 %</span></span>
+              <span class="jg"><span class="lab">11</span><span>1. Halbjahr 50 % – 2. Halbjahr 50 %</span></span></td>
+          <!-- Klausuren-Spalte (auskommentiert):
+<td><span class="jg"><span class="lab">11–13</span><span>je 1 Klausur pro Halbjahr</span></span></td>
+-->
+        </tr>
+        <tr>
+          <td class="fach">Politik<span class="stand">Stand: 15. April 2026</span></td>
+          <td class="ap">Herr Schünemann</td>
+          <td><span class="jg"><span class="lab">11</span><span>Mitarbeit 60 % – Klausuren 40 %</span></span></td>
+          <!-- Klausuren-Spalte (auskommentiert):
+<td><span class="jg"><span class="lab">11</span><span>1 Klausur (oder ein KLN) im Halbjahr</span></span></td>
+-->
+        </tr>
+        <tr>
+          <td class="fach">PP und PRQ<span class="stand">Stand: 12. Aug. 2026</span></td>
+          <td class="ap">Frau Schmincke</td>
+          <td><span class="jg"><span class="lab">11–13</span><span>Mitarbeit 50 % – Klausuren 50 %</span></span>
+              <span class="jg"><span class="lab">11</span><span>1. Halbjahr 50 % – 2. Halbjahr 50 %</span></span></td>
+          <!-- Klausuren-Spalte (auskommentiert):
+<td><span class="jg"><span class="lab">11–13</span><span>je 1 Klausur pro Halbjahr (oder 1 alternativer Leistungsnachweise im Rahmen des Praktikums, der Projektarbeit oder der praktischen Prüfung)</span></span></td>
+-->
+        </tr>
+        <tr>
+          <td class="fach">Religion<span class="stand">Stand: 13. April 2026</span></td>
+          <td class="ap">Frau Brünjes</td>
+          <td><span class="jg"><span class="lab">11–13</span><span>Mitarbeit 50 % – Klausuren 50 %</span></span>
+              <span class="jg"><span class="lab">11</span><span>1. Halbjahr 50 % – 2. Halbjahr 50 %</span></span></td>
+          <!-- Klausuren-Spalte (auskommentiert):
+<td><span class="jg"><span class="lab">11–13</span><span>je 1 Klausur pro Halbjahr</span></span></td>
+-->
+        </tr>
+        <tr>
+          <td class="fach">Spanisch<span class="stand">Stand: 13. Jan. 2026</span></td>
+          <td class="ap">Frau Acebrón</td>
+          <td><span class="jg"><span class="lab">11–13</span><span>Mitarbeit 60 % (d. h. Tests 25 % und direkte Mitarbeit 35 %) – Klausuren 40 %</span></span>
+              <span class="jg"><span class="lab">11</span><span>1. Halbjahr 30 % – 2. Halbjahr 70 %</span></span></td>
+          <!-- Klausuren-Spalte (auskommentiert):
+<td><span class="jg"><span class="lab">11–13</span><span>je 1 Klausur pro Halbjahr</span></span></td>
+-->
+        </tr>
+        <tr>
+          <td class="fach">Sport<span class="stand">Stand: 13. Aug. 2026</span></td>
+          <td class="ap">Herr Dallmeyer</td>
+          <td><span class="jg"><span class="lab">11–13</span><span>40 % absolute Leistung, 30 % Lernfortschritt (sehr gute SuS können als Ersatzleistung ein Referat halten, Hilfestellungen geben oder Techniken demonstrieren, wenn ein Lernfortschritt nicht mehr möglich ist), 30 % Sozialverhalten, Fairness, Mitarbeit (z. B. Auf- und Abbauen)</span></span></td>
+          <!-- Klausuren-Spalte (auskommentiert):
+<td><span class="jg"><span class="lab">Hinweis</span><span>Unentschuldigte Fehlzeiten führen gemäß einem Schlüssel zu Punktabzügen in der Gesamtbewertung</span></span></td>
+-->
+        </tr>
+        <tr>
+          <td class="fach">Tee und PRT<span class="stand">Stand: 12. Aug. 2026</span></td>
+          <td class="ap">Herr Jung</td>
+          <td><span class="jg"><span class="lab">Tee 11–12</span><span>Mitarbeit 40 % – Klausuren 60 %</span></span>
+              <span class="jg"><span class="lab">Tee 13</span><span>Mitarbeit 50 % – Klausuren 50 %</span></span>
+              <span class="jg"><span class="lab">Tee 11</span><span>1. Halbjahr 40 % – 2. Halbjahr 60 %</span></span>
+              <span class="jg"><span class="lab">PRT 11–13</span><span>Mitarbeit 50 % – sonstige Tätigkeit (z. B. Messprotokolle, Konstruktionen, Regelkreise) 50 %</span></span></td>
+          <!-- Klausuren-Spalte (auskommentiert):
+<td><span class="jg"><span class="lab">Tee 11</span><span>1. Halbjahr 1 Klausur, 2. Halbjahr 2 Klausuren</span></span>
+              <span class="jg"><span class="lab">Tee 12</span><span>1 Klausur in 12/1, 2 Klausuren in 12/2</span></span>
+              <span class="jg"><span class="lab">Tee 13</span><span>1 Klausur pro Halbjahr</span></span></td>
+-->
+        </tr>
+        <tr>
+          <td class="fach">VW<span class="stand">Stand: 9. Okt. 2025</span></td>
+          <td class="ap">Herr Schünemann</td>
+          <td><span class="jg"><span class="lab">11</span><span>Mitarbeit 60 % – Klausuren 40 %; 1. Halbjahr 40 % – 2. Halbjahr 60 %</span></span>
+              <span class="jg"><span class="lab">12</span><span>Mitarbeit 60 % – Klausuren 40 %</span></span>
+              <span class="jg"><span class="lab">13/1</span><span>Mitarbeit 60 % – Klausuren 40 %</span></span>
+              <span class="jg"><span class="lab">13/2</span><span>Mitarbeit 50 % – Klausuren 50 %</span></span></td>
+          <!-- Klausuren-Spalte (auskommentiert):
+<td><span class="jg"><span class="lab">11</span><span>je Halbjahr 1 Klausur (oder ein KLN)</span></span>
+              <span class="jg"><span class="lab">12</span><span>je Halbjahr 1 Klausur</span></span>
+              <span class="jg"><span class="lab">13/1</span><span>1 Klausur</span></span>
+              <span class="jg"><span class="lab">13/2</span><span>1 Klausur oder ein KLN</span></span></td>
+-->
+        </tr>
+        <tr>
+          <td class="fach">Werte und Normen<span class="stand">Stand: 13. April 2026</span></td>
+          <td class="ap">Frau Brünjes</td>
+          <td><span class="jg"><span class="lab">11–13</span><span>Mitarbeit 50 % – Klausuren 50 %</span></span>
+              <span class="jg"><span class="lab">11</span><span>1. Halbjahr 50 % – 2. Halbjahr 50 %</span></span></td>
+          <!-- Klausuren-Spalte (auskommentiert):
+<td><span class="jg"><span class="lab">11–13</span><span>je 1 Klausur pro Halbjahr</span></span></td>
+-->
+        </tr>
       </tbody>
     </table>
-  </div>
-  <p class="fussnoten">Die geltenden rechtlichen Bestimmungen legen nicht fest, zu welchen Anteilen beide Halbjahre gewichtet werden. Stattdessen ist von einer Ganzjahresnote die Rede. Bei der Notenfindung soll in erster Linie die Leistungsentwicklung berücksichtigt werden. Die aufgeführten Prozentwerte stellen daher nur eine grobe Orientierung dar.</p>
-  </div><!-- /#gew-print -->
+        </div>
+      </div><!-- /#gew-print -->
     </div><!-- /.gew-body -->
-  </details>-->
+  </details>
   <p>Am Ende der Einführungsphase entscheidet die Klassenkonferenz über Ihre Versetzung in die Qualifikationsphase. Wenn Sie die Voraussetzungen nicht erfüllen, können Sie die Einführungsphase <strong>einmal wiederholen</strong>. Grundsätzlich müssen Ihre Leistungen „glatt ausreichend“ sein, d. h. <strong>05 Punkte</strong> müssen erreicht sein. Eine Versetzung findet statt, wenn…</p>
   <ol class="regeln">
     <li>…Sie in Ihrem fachbezogenen Schwerpunktfach (P1) <strong>mindestens 05 Punkte</strong> haben.</li>
